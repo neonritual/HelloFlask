@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>hey</h1>
+
+<form action="{{ url_for('receive_data') }}" method="post">
+    <label for="user_name">Name: </label>
+    <input type="text" name="user_name">
+    <label for="user_password">Password:</label>
+    <input type="text" name="user_password">
+    <input type="submit">
+</form>
+
+<p>Note: This won't log you in anywhere, it will only show your username and password on the next screen
+as practice for sending form info in Flask.</p>
+</body>
+</html>

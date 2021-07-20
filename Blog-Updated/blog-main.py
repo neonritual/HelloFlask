@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
 
 app = Flask(__name__)
@@ -17,6 +17,17 @@ def about_me():
 @app.route("/contact")
 def contact_me():
     return render_template("contact.html")
+
+@app.route("/form-entry", methods=["GET", "POST"])
+def receive_data():
+    if request.method == "POST":
+        name = request.form['name']
+        email = request.form['email']
+        phone = request.form['phone']
+        message = request.form['message']
+        return render_template("form-entry.html", name=name, email=email, phone=phone, message=message)
+
+
 
 @app.route('/blog/<int:blog_num>')
 def get_post(blog_num):
