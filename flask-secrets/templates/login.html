@@ -1,0 +1,28 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %} Top Secret {% endblock %}
+
+{% block content %}
+
+	<h1>Login</h1>
+	<form method="POST" action="{{ url_for('login') }}" novalidate>
+		{{ form.hidden_tag() }}
+		<p>
+			{{ form.user_email.label }} <br>{{ form.user_email (size=30)}}
+			{% if form.user_email.errors %}
+				{% for err in form.user_email.errors %}
+				<span style="color: red">{{ err }}</span>
+				{% endfor %}
+			{% endif %}
+		</p>
+		<p>
+			{{ form.user_pass.label }} <br>{{ form.user_pass(size=30) }}
+			{% if form.user_email.errors %}
+				{% for err in form.user_pass.errors %}
+				<span style="color: red">{{ err }}</span>
+				{% endfor %}
+			{% endif %}
+		</p>
+			{{ form.submit }}
+	</form>
+{% endblock %}
